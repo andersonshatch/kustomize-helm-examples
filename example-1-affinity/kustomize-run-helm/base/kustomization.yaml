@@ -1,0 +1,6 @@
+helmCharts:
+  - name: contrast-agent-operator
+    repo: https://contrastsecurity.dev/helm-charts
+    version: 1.2.0
+    includeCRDs: true
+    valuesFile: values.yaml

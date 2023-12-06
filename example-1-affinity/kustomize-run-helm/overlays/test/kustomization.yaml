@@ -1,0 +1,16 @@
+bases:
+  - ../../base
+patches:
+  - target:
+      kind: Deployment
+      labelSelector: "app.kubernetes.io/name=operator,app.kubernetes.io/part-of=contrast-agent-operator"
+    patch: |-
+      - op: remove
+        path: /spec/template/spec/affinity/podAntiAffinity/preferredDuringSchedulingIgnoredDuringExecution
+      - op: add
+        path: /spec/template/spec/affinity/podAntiAffinity/requiredDuringSchedulingIgnoredDuringExecution
+        value:
+          - labelSelector:
+              matchLabels:
+                app: example-webgoat
+            topologyKey: kubernetes.io/hostname
