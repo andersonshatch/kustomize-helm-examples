@@ -1,7 +1,5 @@
 bases:
   - ../../base
-# patchesStrategicMerge:
-#   - affinity.yaml
 patches:
   - target:
       kind: Deployment
