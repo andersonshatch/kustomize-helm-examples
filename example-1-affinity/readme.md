@@ -59,3 +59,26 @@ spec:
             app: example-webgoat
         topologyKey: kubernetes.io/hostname
 ```
+
+# Approaches
+
+## [helm-run-kustomize](helm-run-kustomize) 
+As the name suggests, has Helm run kustomize, as a post-render step.
+Over the other methods, this has the advantage of Helm knowing about the deployment, allowing it to do upgrades, uninstalls etc.,
+
+### Links
+- https://helm.sh/docs/topics/advanced/#post-rendering
+- https://github.com/thomastaylor312/advanced-helm-demos/tree/master/post-render
+- https://austindewey.com/2020/07/27/patch-any-helm-chart-template-using-a-kustomize-post-renderer/
+
+## [kustomize-rendered-helm](kustomize-rendered-helm)
+Have Helm fetch and render the chart and then kustomize the changes onto it. Rendered chart should likely be added to version control for production use.
+
+### Links
+- https://github.com/kubernetes-sigs/kustomize/blob/master/examples/chart.md#performance
+
+## [kustomize-run-helm](kustomize-run-helm)
+Have kustomize run Helm to fetch and render the chart, then kustomize changes onto it. Chart is stored locally and should likely be added to version control for production use.
+
+### Links
+- https://github.com/kubernetes-sigs/kustomize/blob/master/examples/chart.md
