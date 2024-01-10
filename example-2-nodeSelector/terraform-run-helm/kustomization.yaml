@@ -1,0 +1,12 @@
+bases:
+  - all.yaml
+patches:
+  - target:
+      kind: Deployment
+      labelSelector: "app.kubernetes.io/name=operator,app.kubernetes.io/part-of=contrast-agent-operator"
+    #change below with what you want to add
+    patch: |-
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          owner: appsec
