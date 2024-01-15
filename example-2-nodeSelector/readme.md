@@ -5,8 +5,11 @@
 
 # Approaches
 
-## [terraform-run-helm](terraform-run-helm)
-Terraform will run Helm to deploy the chart, executing a post-render step that adds the `nodeSelector` value(s).
+## [terraform-run-helm-kustomize](terraform-run-helm-kustomize)
+Terraform will run Helm to deploy the chart, executing a post-render step that adds the `nodeSelector` value(s) via kustomize.
+
+## [terraform-run-helm-go](terraform-run-helm-go)
+Terraform will run Helm to deploy the chart, executing a post-render step that adds the `nodeSelector` value(s) via a go script which can be built and stored in the repo.
 
 ### Links
 - https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release
